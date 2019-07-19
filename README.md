@@ -4,9 +4,10 @@ A plugin to add encoding requests to a queue for processing when videos are uplo
 
 Some reasoning, from Wes's original documentation:  
 
-_This is a resource intensive process, and may take more often several minutes to less often several hours to complete. Please plan accordingly. Also note it is better to transcode a high resolution video into a lower resolution than it is to go from low to high. So when creating your videos, aim high for best results.
+>  *This is a resource intensive process, and may take more often several minutes to less often several hours to complete. Please plan accordingly. Also note it is better to transcode a high resolution video into a lower resolution than it is to go from low to high. So when creating your videos, aim high for best results.
+>  
+>   Since each file upload triggers 3 ffmpeg jobs, and since it is possible to upload a carload of videos as fast as one can type the metadata, it has been demonstrated that the load average on jerboa can hit 75 or more. Thus, all jobs pass from cumulusclips to a primitive queuing system implemented in perl.*
 
- Since each file upload triggers 3 ffmpeg jobs, and since it is possible to upload a carload of videos as fast as one can type the metadata, it has been demonstrated that the load average on jerboa can hit 75 or more. Thus, all jobs pass from cumulusclips to a primitive queuing system implemented in perl._
 
 # Installation
 
