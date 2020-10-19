@@ -1,10 +1,16 @@
 #!/usr/bin/perl
 use strict; # always!
 use File::Queue;
+use Config::Tiny;
 my $q_num=$ARGV[0];
 
+my $config = Config::Tiny->read( 'config.config' );
+my $daemonpath = $config->{_}->{daemonpath};
+
 # Set Path to queues 
-my $q_file="/Users/jhenry/working/qdaemon/$q_num";
+my $q_file="$daemonpath/$q_num";
+
+print "Setting up new queue at $daemonpath...\n";
 
 my $q = new File::Queue (File => $q_file,Mode=>0774 );
 print "Starting up $q_file ...\n";
